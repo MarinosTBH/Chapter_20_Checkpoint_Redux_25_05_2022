@@ -1,0 +1,29 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+import App from "./App";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+import {Provider} from "react-redux";
+import store from './JS/store/index'
+
+
+ReactDOM.render(
+  <React.StrictMode>
+     <Provider store={store}> {/* the component Provider needs a props store  */}
+
+    {/* As you can see from the code above, the component Provider needs a props named store,
+     through this props we pass the redux store to the wrapped hierarchy  which in our case the whole App  */}
+
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
