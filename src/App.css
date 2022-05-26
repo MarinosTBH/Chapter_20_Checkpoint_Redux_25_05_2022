@@ -88,12 +88,12 @@ body{
   border-radius: 5px;
   width: 90%;
   color: #fff;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
   text-align: left;
 }
 .task-box{
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .todo-row:hover{
   width: 90%;

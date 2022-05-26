@@ -1,7 +1,6 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import { connect,useDispatch } from 'react-redux'
 import EditTask  from './EditTask';
-import {Button} from "react-bootstrap";
 import { doneTask, deleteTask } from '../JS/Actions/actions';
 import {MdDoneAll} from "react-icons/md";
 import {AiFillDelete} from "react-icons/ai";
@@ -50,7 +49,7 @@ const ListTask = (props) => {
                 .map((task) => (
                     <div key={task.id} className="todo-row" style={{ backgroundColor:"grey"}}>
                         <div>{task.description} </div>
-                        <section className=''>
+                        <section className='icon-box'>
                             <AiFillDelete  onClick={()=>handleDelete(task.id)}>Delete</AiFillDelete>
                             <EditTask task={task}/>
                             <MdDoneAll variant="primary" onClick={()=>handleDone(task.id, task.isDone)} style={{backgroundColor: task.isDone? "blue" : "grey"}}> </MdDoneAll>

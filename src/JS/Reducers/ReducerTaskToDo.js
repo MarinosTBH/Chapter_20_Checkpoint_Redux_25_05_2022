@@ -1,4 +1,4 @@
-import { ADD_TASK, EDIT_TASK, DONE_TASK , DELETE_TASK, FILTER_TASK} from "../Constants/actions-types";
+import { ADD_TASK, EDIT_TASK, DONE_TASK , DELETE_TASK} from "../Constants/actions-types";
 
 const initialState = {
     tasks: [
