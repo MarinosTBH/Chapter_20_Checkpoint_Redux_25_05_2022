@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editTask } from '../JS/Actions/actions';
 import {Modal, Button} from "react-bootstrap"
+import {FaEdit} from "react-icons/fa";
 
 const EditTask = ({task}) => {
 
@@ -25,9 +26,9 @@ const EditTask = ({task}) => {
   }
   return (
     <div>
-    <Button variant="success" onClick={handleShow}>
+    <FaEdit  onClick={handleShow}>
       Edit Task
-    </Button>
+    </FaEdit>
     
 
     <Modal show={show} onHide={handleClose} animation={false}>
@@ -35,7 +36,7 @@ const EditTask = ({task}) => {
         <Modal.Title>EDIT</Modal.Title>
       </Modal.Header>
       <Modal.Body> 
-        <input type="text" placeholder='description' defaultValue={task.description} onChange={handleChange}></input>
+        <input style={{width:"100%"}}type="text" placeholder='description' defaultValue={task.description} onChange={handleChange}></input>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>

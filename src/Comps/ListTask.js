@@ -3,6 +3,9 @@ import { connect,useDispatch } from 'react-redux'
 import EditTask  from './EditTask';
 import {Button} from "react-bootstrap";
 import { doneTask, deleteTask } from '../JS/Actions/actions';
+import {MdDoneAll} from "react-icons/md";
+import {AiFillDelete} from "react-icons/ai";
+
 
 const MapStateToProps = state => {   //mapStateToProps: returns the state (or only a portion of the state ) and passes it to  Component as a props.
     return {                         //Needs to be implemented by you.
@@ -13,13 +16,12 @@ const MapStateToProps = state => {   //mapStateToProps: returns the state (or on
 
 
 const ListTask = (props) => {
+    console.log(props,
+        props.tasks)
     ////////////////////
     // const [items, setItems] = useState(props.tasks);
     const [filtered, setFiltered] = useState(props.tasks);
-    useEffect(()=> {
-        setFiltered(props.tasks.filter((task)=>
-            task ))
-    },[props.tasks]);
+
     /////////////////
 
     const dispatch = useDispatch();
@@ -33,34 +35,29 @@ const ListTask = (props) => {
     }
 
     return (
-        <div >
-            
-            <Button
-                style={{width:"50%", margin:"auto 10px"}}
+        <div className='task-box'>
+            <button
                 type="button"
-                className="btn toggle-btn"
-                onClick={() => filtered.setFiltered(!filtered.isDone)  }
+                className=" toggle-btn"
+                onClick={() => setFiltered(filtered=>!filtered)  }
             >
-        <span className="visually-hidden">Show </span>
-        <span>Filter Not Done</span>
-        <span className="visually-hidden"> tasks</span>
-      </Button>
+                <span>ALL Tasks / Not Done</span>
+            </button>
 
-            {filtered.map((task) => (
-                
-                <div key={task.id} style={{border : "1px solid green", backgroundColor:"grey", margin:10}}>
-                    <h3>{task.description} </h3>
-                    <section style={{display:"flex", gap:10}}>
-
-                        <Button variant="danger" onClick={()=>handleDelete(task.id)}>Delete</Button>
-                        <EditTask task={task}/>
-                        
-                        <Button variant="primary" onClick={()=>handleDone(task.id, task.isDone)}>{task.isDone?  "Done" : "Not Done"} </Button>
-
-                    </section>
-                </div>
-            ))}
-        </div>)
+            {props.tasks.filter(item=> 
+                {if(!filtered) {return !item.isDone} 
+                return true})
+                .map((task) => (
+                    <div key={task.id} className="todo-row" style={{ backgroundColor:"grey"}}>
+                        <div>{task.description} </div>
+                        <section className=''>
+                            <AiFillDelete  onClick={()=>handleDelete(task.id)}>Delete</AiFillDelete>
+                            <EditTask task={task}/>
+                            <MdDoneAll variant="primary" onClick={()=>handleDone(task.id, task.isDone)} style={{backgroundColor: task.isDone? "blue" : "grey"}}> </MdDoneAll>
+                        </section>
+                    </div>
+))}
+</div>)
 }
 
 export default connect(MapStateToProps)(ListTask);  //provides its connected component with the pieces of the data it needs from the store, and the functions it can use to dispatch actions to the store.

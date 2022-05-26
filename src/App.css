@@ -1,14 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+*{
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+body{
+  background:  linear-gradient(50deg, #bdb1b1,#203281 100%);
+  /* background: -webkit-linear-gradient(45deg, #ea882e, #00ff95 90%); */
 
-  .App {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-.App-inn{
- 
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width:520px;
+  min-height: 600px;
+  background: #161a2b;
+  text-align: center;
+  margin: 128px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+}
+
+/* Add form */
+.title{
+  color : #ea882e;
+  text-align: center;
+  font-size: 30px;
+  font-weight:500;
+  margin-top: 32px;
+}
+.titleawesome{
+  font-weight: 800;
+  background: -webkit-linear-gradient(45deg, #ea882e, #00ff95 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+.task-form{
+  margin-bottom: 10px;
+  align-items: center; 
+  justify-content: space-between;
+}
+.form-fill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:18px ;
+}
+.task-input{
+  padding: 8px 22px 10px 8px;
+  border-radius : 4px 0px 0px 4px;
+  border : 2px solid 00ff95;
+  outline: none;
+  width: 390px;
+  background: rgba(161, 161, 161, 0.5);
+  color: #fff;
+  margin: 0;
+}
+.task-btn{
+  padding: 10px;
+  border-radius : 0 4px 4px 0; 
+  cursor: pointer;
+  outline: none;
+  margin-top: 1px;
+  background: linear-gradient(98deg,
+  rgba(93, 12, 255 , 1) 0%, 
+  #ea882e 100%);
+  font-weight: 800;
+}
+/* filter btn  */
+.toggle-btn{
+  width: 390px;
+  background: linear-gradient(98deg,
+  #ea882e 0%, 
+  rgba(93, 12, 255 , 1) 50%);
+  font-weight: 800;
+}
+.todo-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  padding: 10px;
+  border-radius: 5px;
+  width: 90%;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: left;
+}
+.task-box{
+  margin-top: 20px;
+}
+.todo-row:hover{
+  width: 90%;
+  padding: 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+.icon-box{
+  display: inline-flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  gap: 10px;
 }

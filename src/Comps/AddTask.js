@@ -1,8 +1,7 @@
 import React,{useState} from "react";
 import { connect } from 'react-redux'; 
-// import { useDispatch } from 'react-redux'; 
 import { addTask } from '../JS/Actions/actions'; // pass actions
-// import { filterTask } from '../JS/Actions/actions'; // pass actions
+import "../App.css"
 
 const mapDispatchToProps = dispatch => { //mapDispatchToProps: it does something similar, but for actions. mapDispatchToProps connects Redux actions to React props. 
     return {                             // This way a connected React component will be able to send messages to the store.
@@ -34,19 +33,13 @@ const AddTask =(props) =>{
         // }
 
     return(
-        <div><form onSubmit={handleSubmit}>
-            <div>
-                <h1>Your TODO list</h1>
-                <label htmlFor="Title">Add Description</label>
-                <input placeholder="Type your task" type="text" name="description" id="description" onChange={e => setDescription(e.target.value)}/>
-            </div>
-                
-            <div>
-                <input type="submit" value="Add" />
-                
-            </div>
-        </form>
-    </div>
+        <div className="task-form">
+            <h1 className="title">What <span className="titleawesome">TODO</span> today ? </h1>
+            <form className="form-fill" onSubmit={handleSubmit}>
+                <input className="task-input" placeholder="Type your task" type="text" name="description" id="description" onChange={e => setDescription(e.target.value)}/>
+                <input className="task-btn" type="submit" value="Add" />
+            </form>
+        </div>
 )
 }
 
