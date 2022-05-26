@@ -1,4 +1,4 @@
-import { ADD_TASK, EDIT_TASK, DONE_TASK} from "../Constants/actions-types.js";
+import { ADD_TASK, EDIT_TASK, DONE_TASK, DELETE_TASK, FILTER_TASK} from "../Constants/actions-types.js";
 
 
 //The type property drives how the state should change and it's always required by Redux.
@@ -23,4 +23,14 @@ export const doneTask= (payload) => {
     payload,
     }
 };
+export const deleteTask= (payload) => {
+    return {
+    type : DELETE_TASK,
+    payload,
+    }
+};
+
+
+
+
 

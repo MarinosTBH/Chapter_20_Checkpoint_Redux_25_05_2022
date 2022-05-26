@@ -1,4 +1,8 @@
-import {combineReducers} from "redux"
-import {ReducerTaskToDo} from "./ReducerTaskToDo"
+import { combineReducers } from "redux";
+import ReducerTaskToDo from "./ReducerTaskToDo";
+import filterTodo from "./filter.reducers";
 
-export const rootReducer=combineReducers({ReducerTaskToDo})
+export default combineReducers({
+    ReducerTaskToDo,
+  filterTodo
+});

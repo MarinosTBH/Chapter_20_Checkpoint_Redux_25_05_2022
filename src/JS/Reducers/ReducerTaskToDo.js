@@ -1,4 +1,4 @@
-import { ADD_TASK, EDIT_TASK, DONE_TASK } from "../Constants/actions-types";
+import { ADD_TASK, EDIT_TASK, DONE_TASK , DELETE_TASK, FILTER_TASK} from "../Constants/actions-types";
 
 const initialState = {
     tasks: [
@@ -15,7 +15,7 @@ const initialState = {
         {
             id:3,
             description: `Eat a rich vitamin meal to stay energetic  `,
-            isDone: true 
+            isDone: false 
         }
     ]
    };
@@ -35,10 +35,15 @@ const initialState = {
        
         case DONE_TASK : 
             return {
-                tasks : state.tasks.map(task => task.id === action.payload.id ? {...task, isDone: !action.payload.done}: task)
+                tasks : state.tasks.map(task => task.id === action.payload.id ? {...task, isDone: !action.payload.isDone}: task)
         }
-            //done
-        
+        case DELETE_TASK : 
+        return {
+            // tasks : state.tasks.map(task => task.id === action.payload.id ? {task , ...state.tasks}: task)
+            tasks : [...state.tasks.filter(task=>task.id !== action.payload.id)]
+        }
+
+            //don
             default:
                 return state;
         }

@@ -28,6 +28,7 @@ const EditTask = ({task}) => {
     <Button variant="success" onClick={handleShow}>
       Edit Task
     </Button>
+    
 
     <Modal show={show} onHide={handleClose} animation={false}>
       <Modal.Header closeButton>
