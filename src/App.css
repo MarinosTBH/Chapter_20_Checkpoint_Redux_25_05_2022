@@ -10,6 +10,17 @@ body{
   /* background: -webkit-linear-gradient(45deg, #ea882e, #00ff95 90%); */
 
 }
+@media screen and (minx-width:600){
+  .App{
+    width: 320px;
+  }
+  .task-input{
+    width: 300px;
+  }
+  .toggle-btn{
+    width: 300px;
+  }
+}
 .App {
   display: flex;
   flex-direction: column;
